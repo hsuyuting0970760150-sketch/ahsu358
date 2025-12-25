@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>阿徐｜一對一歌唱教學</title>
+
+<style>
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"Noto Sans TC","Segoe UI",sans-serif;
+  margin:0;
+  background:#fafafa;
+  color:#222;
+}
+.container{
+  max-width:720px;
+  margin:auto;
+  padding:24px;
+}
+h1{
+  font-size:2.2rem;
+  line-height:1.2;
+  margin-bottom:8px;
+}
+.lead{
+  color:#555;
+  font-size:1.05rem;
+}
+.section{
+  margin-top:48px;
+}
+.card{
+  background:#fff;
+  border-radius:20px;
+  padding:24px;
+  box-shadow:0 8px 24px rgba(0,0,0,.06);
+}
+.btn{
+  display:block;
+  width:100%;
+  padding:16px;
+  border-radius:14px;
+  border:none;
+  font-size:1.05rem;
+  cursor:pointer;
+}
+.primary{
+  background:#1abc9c;
+  color:#fff;
+}
+input,textarea{
+  width:100%;
+  padding:12px;
+  border-radius:10px;
+  border:1px solid #ccc;
+  margin-bottom:12px;
+  font-size:1rem;
+}
+
+.hero-media{
+  width:100%;
+  max-height:60vh;
+  aspect-ratio:16/9;
+  object-fit:cover;
+  border-radius:20px;
+  margin:14px 0;
+}
+.section-media{
+  width:100%;
+  border-radius:16px;
+  margin:16px 0;
+}
+.muted-media{
+  width:100%;
+  border-radius:14px;
+  margin:16px 0;
+  opacity:.96;
+}
+
+blockquote{
+  margin:0 0 16px 0;
+  padding-left:16px;
+  border-left:4px solid #1abc9c;
+  color:#444;
+  line-height:1.6;
+  font-size:.95rem;
+}
+
+@media(max-width:640px){
+  h1{font-size:1.8rem;}
+  .hero-media{max-height:42vh;}
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+
+<!-- HERO -->
+<h1>把聲音唱穩，也把自己安放好。</h1>
+<p class="lead">
+溫柔但不放水的一對一歌唱教學。<br>
+專為願意練習、想真正進步的人設計。
+</p>
+
+<img class="hero-media" src="images/hero.jpg" alt="阿徐舞台演唱">
+
+<!-- 教學理念 -->
+<div class="section card">
+<h2>這堂課適合誰？</h2>
+<p>
+如果你願意為聲音負責，願意練習、願意面對卡關，  
+我會把我知道的、聽見的，清楚地交給你。
+</p>
+
+<img class="section-media" src="images/teaching.jpg" alt="一對一歌唱教學現場">
+</div>
+
+<!-- 學生回饋 -->
+<div class="section card">
+<h2>學生怎麼說</h2>
+
+<blockquote>
+「老師用簡單易懂的方式，讓我知道怎麼練，也慢慢建立信心。」
+</blockquote>
+
+<blockquote>
+「不只是唱歌技巧，還教我怎麼聽、怎麼照顧自己的聲音。」
+</blockquote>
+
+<blockquote>
+「氣氛輕鬆但不隨便，每次上課都很清楚自己該往哪裡進步。」
+</blockquote>
+
+<img class="muted-media" src="images/group.jpg" alt="與學生的教學時刻">
+</div>
+
+<!-- 預約表單 -->
+<div class="section card">
+<h2>預約體驗課</h2>
+
+<input id="name" placeholder="姓名">
+<input id="phone" placeholder="電話">
+<input id="email" placeholder="Email">
+<textarea id="goal" rows="3" placeholder="你目前最想改善的聲音問題"></textarea>
+<textarea id="time" rows="2" placeholder="可上課時段"></textarea>
+
+<button class="btn primary" onclick="submitAndGoLine()">
+送出預約並前往 LINE
+</button>
+
+<p id="status" style="margin-top:12px;color:#666;font-size:.9rem;"></p>
+
+<textarea id="preview" rows="6" style="display:none;"></textarea>
+</div>
+
+</div>
+
+<script>
+const LINE_OA_URL="https://page.line.me/418zpjqs";
+
+function buildMsg(){
+return `【歌唱課預約】
+姓名：${name.value}
+電話：${phone.value}
+Email：${email.value}
+
+目標：
+${goal.value}
+
+可上課時段：
+${time.value}
+
+（我理解費用為預約後提供，並願意配合練習。）`;
+}
+
+async function submitAndGoLine(){
+if(!name.value||!phone.value||!email.value||!goal.value||!time.value){
+status.textContent="請先填寫完整資料再送出";
+return;
+}
+const msg=buildMsg();
+preview.value=msg;
+
+try{
+await navigator.clipboard.writeText(msg);
+}catch(e){
+preview.select();
+document.execCommand("copy");
+}
+
+status.textContent="已複製預約訊息，正在前往 LINE…";
+window.location.href=LINE_OA_URL;
+}
+</script>
+
+</body>
+</html>
