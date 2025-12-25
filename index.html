@@ -1,183 +1,411 @@
-<!DOCTYPE html>
-<html lang="zh-Hant">
+<!doctype html>
+<html lang="zh-Hant-TW">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>阿徐｜專業歌唱教學</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>阿徐｜歌唱教學・配唱式引導</title>
+  <meta name="description" content="阿徐｜專業歌唱教學 × 配唱式引導。立即加入 LINE 預約體驗課。" />
 
   <style>
-    * {
-      box-sizing: border-box;
-      font-family: -apple-system, BlinkMacSystemFont, "Noto Sans TC",
-        "PingFang TC", "Microsoft JhengHei", sans-serif;
+    :root{
+      --text:#1a1a1a;
+      --muted:#666;
+      --line:#eaeaea;
+      --bg:#ffffff;
+      --soft:#f6f7f8;
+      --brand:#56c463;
+      --brand-dark:#46a853;
+      --shadow: 0 8px 24px rgba(0,0,0,.08);
+      --radius: 16px;
+      --max: 1040px;
     }
 
-    body {
-      margin: 0;
-      background: #fafafa;
-      color: #222;
-      line-height: 1.6;
+    *{ box-sizing:border-box; }
+    body{
+      margin:0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC",
+                   "Noto Sans TC", "Microsoft JhengHei", Arial, sans-serif;
+      color:var(--text);
+      background:var(--bg);
+      line-height:1.65;
     }
+    a{ color:inherit; }
 
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    /* ===== Hero ===== */
-    .hero {
-      padding: 56px 20px 48px;
-      text-align: center;
-      background: linear-gradient(180deg, #ffffff, #f2f2f2);
-    }
-
-    .hero h1 {
-      font-size: 28px;
-      font-weight: 700;
-      margin-bottom: 12px;
-    }
-
-    .hero p {
-      font-size: 16px;
-      color: #555;
-      max-width: 520px;
-      margin: 0 auto 28px;
-    }
-
-    .cta {
-      display: inline-block;
-      background: #06c755;
-      color: white;
-      padding: 14px 28px;
-      border-radius: 999px;
-      font-size: 16px;
-      font-weight: 600;
-    }
-
-    /* ===== Image Section ===== */
-    .images {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 16px;
-      padding: 32px 20px;
-      max-width: 900px;
+    .wrap{
+      max-width: var(--max);
       margin: 0 auto;
+      padding: 0 20px;
     }
 
-    .images img {
-      width: 100%;
-      border-radius: 12px;
+    /* ===== HERO ===== */
+    .hero{
+      padding: 72px 0 56px;
+      text-align:center;
+    }
+    .hero h1{
+      margin:0 0 14px;
+      font-size: clamp(28px, 3.2vw, 44px);
+      letter-spacing: .02em;
+      line-height:1.25;
+      word-break: keep-all; /* 避免中文亂斷行 */
+    }
+    .hero p{
+      margin:0;
+      color:var(--muted);
+      font-size: 18px;
+    }
+    .hero .sub{
+      margin-top: 6px;
+      color:var(--muted);
+      font-size: 18px;
+    }
+
+    .cta-row{
+      margin-top: 34px;
+      display:flex;
+      justify-content:center;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+    .btn{
+      border:0;
+      cursor:pointer;
+      padding: 16px 28px;
+      border-radius: 999px;
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing:.02em;
+      transition: transform .08s ease, background .2s ease, box-shadow .2s ease;
+      box-shadow: var(--shadow);
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-width: 220px;
+      user-select:none;
+    }
+    .btn:active{ transform: translateY(1px); }
+    .btn-line{
+      background: var(--brand);
+      color:#fff;
+    }
+    .btn-line:hover{ background: var(--brand-dark); }
+
+    .divider{
+      height:1px;
+      background: var(--line);
+      margin: 28px 0 0;
+    }
+
+    /* ===== GALLERY ===== */
+    .section{
+      padding: 56px 0;
+    }
+    .section-title{
+      margin:0 0 16px;
+      font-size: 22px;
+      letter-spacing:.02em;
+    }
+
+    .grid-3{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+    .card{
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      overflow:hidden;
+      background:#fff;
+    }
+    .card .label{
+      padding: 14px 16px 12px;
+      font-weight: 800;
+      font-size: 18px;
+      border-bottom:1px solid var(--line);
+      background: #fff;
+    }
+    .media{
+      width:100%;
+      aspect-ratio: 16 / 10;
+      background: var(--soft);
+      display:block;
       object-fit: cover;
     }
 
-    @media (min-width: 768px) {
-      .images {
-        grid-template-columns: repeat(3, 1fr);
-      }
-    }
-
-    /* ===== Section ===== */
-    .section {
-      padding: 48px 20px;
-      max-width: 720px;
-      margin: 0 auto;
-    }
-
-    .section h2 {
-      font-size: 22px;
-      margin-bottom: 24px;
-      text-align: center;
-    }
-
-    /* ===== Reviews ===== */
-    .review {
-      background: #fff;
+    /* ===== ABOUT ===== */
+    .about{
+      display:grid;
+      grid-template-columns: 240px 1fr;
+      gap: 22px;
+      align-items:start;
       padding: 20px;
-      border-radius: 12px;
-      margin-bottom: 16px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      background:#fff;
     }
-
-    .review p {
-      margin: 0;
+    .about-photo img{
+      width: 240px;
+      max-width: 100%;
+      border-radius: 12px;
+      object-fit: cover;
+      background-color: #f5f5f5;
+      display:block;
+    }
+    .about h3{
+      margin:0 0 8px;
+      font-size: 22px;
+      letter-spacing:.02em;
+    }
+    .about .meta{
+      color:var(--muted);
+      margin:0 0 14px;
       font-size: 15px;
     }
+    .about ul{
+      margin: 10px 0 0;
+      padding-left: 18px;
+    }
+    .about li{ margin: 6px 0; }
 
-    .review span {
-      display: block;
-      margin-top: 8px;
-      font-size: 13px;
-      color: #777;
+    /* ===== TESTIMONIALS ===== */
+    .quotes{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .quote{
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 16px;
+      background:#fff;
+    }
+    .quote p{
+      margin:0;
+      font-size: 16px;
+    }
+    .quote .from{
+      margin-top: 10px;
+      color:var(--muted);
+      font-size: 14px;
     }
 
-    /* ===== Footer ===== */
-    footer {
-      text-align: center;
-      padding: 32px 20px;
+    /* ===== RULES ===== */
+    .rules{
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 18px;
+      background:#fff;
+    }
+    .rules h4{
+      margin: 0 0 10px;
+      font-size: 18px;
+    }
+    .rules .block{
+      margin: 14px 0 0;
+      padding-top: 14px;
+      border-top:1px solid var(--line);
+    }
+    .rules ol, .rules ul{
+      margin: 8px 0 0;
+      padding-left: 18px;
+    }
+    .rules li{ margin: 6px 0; }
+    .note{
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    footer{
+      padding: 28px 0 40px;
+      color: var(--muted);
       font-size: 13px;
-      color: #888;
+      text-align:center;
+    }
+
+    /* ===== MOBILE ===== */
+    @media (max-width: 900px){
+      .grid-3{ grid-template-columns: 1fr; }
+      .quotes{ grid-template-columns: 1fr; }
+      .about{ grid-template-columns: 1fr; }
+      .about-photo img{ width: 100%; }
+      .hero{ padding: 56px 0 44px; }
+      .hero p, .hero .sub{ font-size: 16px; }
     }
   </style>
 </head>
 
 <body>
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="wrap">
+        <!-- 這句就是你現在想換回「最初版本」的位置：你要改字就改這一行 -->
+        <h1>陪你把聲音，唱成你自己的樣子</h1>
 
-  <!-- Hero -->
- <section class="hero">
-  <h1>陪你把聲音，唱成你自己的樣子</h1>
-  <p>專業歌唱教學 × 配唱式引導<br>
-     給願意認真練習、真心想進步的你</p>
-</section>
-    <a
-      class="cta"
-      href="https://line.me/R/ti/p/@418zpjqs"
-      target="_blank"
-      rel="noopener"
-    >
-      立即加入 LINE 預約
-    </a>
-  </section>
+        <p>專業歌唱教學 × 配唱式引導</p>
+        <p class="sub">給願意認真練習、真心想進步的你</p>
 
-  <!-- Images -->
-  <section class="images">
-    <img src="images/photo1.jpg" alt="教學合照" />
-    <img src="images/photo2.jpg" alt="舞台演出" />
-    <img src="images/photo3.jpg" alt="錄音教學" />
-  </section>
+        <div class="cta-row">
+          <button class="btn btn-line" id="lineCta">立即加入 LINE 預約</button>
+        </div>
 
-  <!-- Reviews -->
-  <section class="section">
-    <h2>學生怎麼說</h2>
+        <div class="divider"></div>
+      </div>
+    </section>
 
-    <div class="review">
-      <p>
-        老師講解得很清楚，用簡單易懂的方式，
-        讓我知道怎麼練習，真的進步很多。
-      </p>
-      <span>— AmazingTalker 學生回饋</span>
-    </div>
+    <!-- GALLERY -->
+    <section class="section">
+      <div class="wrap">
+        <div class="grid-3">
+          <article class="card">
+            <div class="label">教學合照</div>
+            <img class="media" src="images/teaching-1.jpg" alt="教學合照">
+          </article>
 
-    <div class="review">
-      <p>
-        上課氣氛非常輕鬆，但該調整的地方老師都會精準指出，
-        不會敷衍。
-      </p>
-      <span>— 初學者學員</span>
-    </div>
+          <article class="card">
+            <div class="label">舞台演出</div>
+            <img class="media" src="images/stage-1.jpg" alt="舞台演出">
+          </article>
 
-    <div class="review">
-      <p>
-        不只是唱歌技巧，老師會帶我理解歌曲情緒，
-        讓我更敢開口唱。
-      </p>
-      <span>— 長期學員</span>
-    </div>
-  </section>
+          <article class="card">
+            <div class="label">錄音教學</div>
+            <img class="media" src="images/recording-1.jpg" alt="錄音教學">
+          </article>
+        </div>
+      </div>
+    </section>
 
-  <!-- Footer -->
-  <footer>
-    © 阿徐歌唱教學｜預約請加 LINE 官方帳號
-  </footer>
+    <!-- ABOUT -->
+    <section class="section">
+      <div class="wrap">
+        <h2 class="section-title">關於阿徐</h2>
 
+        <div class="about">
+          <div class="about-photo">
+            <!-- 你的照片：請把你剛那張改名成 axu-about.jpg 放在 images/ -->
+            <img src="images/axu-about.jpg" alt="阿徐｜歌唱教學引導中">
+          </div>
+
+          <div>
+            <h3>徐鈺婷（阿徐）</h3>
+            <p class="meta">歌唱教學｜配唱製作｜聲音引導</p>
+
+            <p>
+              我在課堂裡做的不是「叫你唱大聲」或「叫你模仿別人」。
+              我更在意的是：你到底想唱成什麼樣子、卡在哪裡、怎麼用最省力的方式把聲音放回你的身體。
+            </p>
+
+            <ul>
+              <li>你不需要很厲害才來上課，但你要願意練習。</li>
+              <li>我會用配唱的方式抓細節：咬字、氣息、共鳴、情緒與段落設計。</li>
+              <li>適合：流行歌唱、錄音準備、舞台演出、唱歌自信建立。</li>
+            </ul>
+
+            <div class="cta-row" style="justify-content:flex-start; margin-top:16px;">
+              <button class="btn btn-line" id="lineCta2">加入 LINE 詢問 / 預約</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="section">
+      <div class="wrap">
+        <h2 class="section-title">學生回饋</h2>
+
+        <div class="quotes">
+          <div class="quote">
+            <p>「老師一直很有耐心地指導我，細心糾正發音，也鼓勵我不要害怕唱錯。」</p>
+            <div class="from">— 學生回饋（節錄）</div>
+          </div>
+
+          <div class="quote">
+            <p>「上課氣氛非常輕鬆，課程中不會指導過量，會依照我的狀態給建議。」</p>
+            <div class="from">— 學生回饋（節錄）</div>
+          </div>
+
+          <div class="quote">
+            <p>「不只是學唱歌，還會引導我思考一首歌想表達什麼，情感會更自然出來。」</p>
+            <div class="from">— 學生回饋（節錄）</div>
+          </div>
+
+          <div class="quote">
+            <p>「老師能準確指出我的進步空間，並給具體有效的改進方式，讓我更有自信。」</p>
+            <div class="from">— 學生回饋（節錄）</div>
+          </div>
+        </div>
+
+        <p class="note">（以上為匿名節錄，保留原意，僅做排版與標點整理。）</p>
+      </div>
+    </section>
+
+    <!-- RULES -->
+    <section class="section">
+      <div class="wrap">
+        <h2 class="section-title">體驗課與課程規範</h2>
+
+        <div class="rules">
+          <h4>體驗課須知</h4>
+          <ol>
+            <li>請準備一首喜歡的歌曲的副歌</li>
+            <li>確保網路連線通順</li>
+            <li>充滿喜悅與開放的心</li>
+          </ol>
+          <p class="note">我會為您的聲音做一次免費的檢測。</p>
+
+          <div class="block">
+            <h4>課程規定</h4>
+            <ol>
+              <li>購買課程前請先傳訊息與我聯繫，適合再購課。</li>
+              <li>上課請務必準時！老師最多只等 10 分鐘。</li>
+              <li>上課教材禁止轉發，若有其他合理用途請先告知。</li>
+            </ol>
+          </div>
+
+          <div class="block">
+            <h4>請假規定</h4>
+            <p class="note">為保障教師與其他學員的權益：</p>
+            <ol>
+              <li>若有事無法上課，最晚請於課程前 12 小時取消。</li>
+              <li>12 小時內請假之學員，請盡快與我聯繫，老師會依照情況處理退課或是收款。</li>
+              <li>「無故缺席」者一律「全額收費」處理。</li>
+            </ol>
+          </div>
+
+          <div class="cta-row" style="justify-content:flex-start; margin-top:18px;">
+            <button class="btn btn-line" id="lineCta3">用 LINE 直接預約 / 詢問</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      © 阿徐｜歌唱教學・配唱式引導
+    </footer>
+  </main>
+
+  <script>
+    // ===== LINE 立刻跳轉（優先開 LINE App，失敗才回 web）=====
+    // 你的 LINE 官方帳號：@418zpjqs
+    const LINE_ID = "@418zpjqs";
+    const lineDeepLink = "line://ti/p/" + encodeURIComponent(LINE_ID);
+    const lineWebLink  = "https://page.line.me/418zpjqs";
+
+    function goLineNow(){
+      // 直接嘗試開 App
+      window.location.href = lineDeepLink;
+
+      // 若裝置沒裝 LINE / 阻擋 scheme，延遲後回退到 web
+      setTimeout(() => {
+        window.location.href = lineWebLink;
+      }, 700);
+    }
+
+    document.getElementById("lineCta").addEventListener("click", goLineNow);
+    document.getElementById("lineCta2").addEventListener("click", goLineNow);
+    document.getElementById("lineCta3").addEventListener("click", goLineNow);
+  </script>
 </body>
 </html>
