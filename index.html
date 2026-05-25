@@ -9,235 +9,305 @@
   <meta name="google-site-verification" content="sQUJzkBEAkvt-KbcqDAt0pHvWhOaAB7d4dbUTlrh6LE" />
   <meta name="keywords" content="歌唱教學, 聲音訓練, 配唱教學, 阿徐, 線上歌唱課, 流行歌唱, 線上歌唱教學,流行歌唱訓練, 配唱式歌唱教學, 聲音引導老師, 歌唱初學者訓練, 一對一歌唱課程" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta charset="UTF-8">
-
-
   <style>
     :root{
-      --text:#1a1a1a;
-      --muted:#666;
-      --line:#eaeaea;
-      --bg:#ffffff;
-      --soft:#f6f7f8;
-      --brand:#56c463;
-      --brand-dark:#46a853;
-      --shadow: 0 8px 24px rgba(0,0,0,.08);
-      --radius: 16px;
-      --max: 1040px;
+      /* 暖色大地色系配色 */
+      --text: #4a3e37;       /* 深焦糖棕，代替純黑 */
+      --muted: #8c7b70;      /* 暖灰棕 */
+      --line: #e5ddd5;       /* 淺土色線條 */
+      --bg: #fdfaf7;         /* 米白色背景 */
+      --soft: #f4eee8;       /* 奶茶色區塊 */
+      --brand: #a67c52;      /* 焦糖棕主色 */
+      --brand-dark: #8b6541; /* 深焦糖棕 */
+      --accent: #d9c5b2;     /* 淡土色裝飾 */
+      --shadow: 0 4px 20px rgba(74, 62, 55, 0.05);
+      --radius: 12px;
+      --max: 960px;          /* 稍微縮小寬度，增加留白感 */
     }
 
     *{ box-sizing:border-box; }
+    
     body{
       margin:0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC",
-                   "Noto Sans TC", "Microsoft JhengHei", Arial, sans-serif;
+      font-family: "PingFang TC", "Noto Serif TC", "Noto Sans TC", "Microsoft JhengHei", serif;
       color:var(--text);
       background:var(--bg);
-      line-height:1.65;
+      line-height:1.8;      /* 增加行高，提升閱讀舒適度 */
+      letter-spacing: 0.05em; /* 微調字距，呈現文青感 */
     }
-    a{ color:inherit; }
+    
+    a{ color:inherit; text-decoration: none; transition: 0.3s; }
+    a:hover{ opacity: 0.7; }
 
     .wrap{
       max-width: var(--max);
       margin: 0 auto;
-      padding: 0 20px;
+      padding: 0 30px;
     }
 
     /* ===== HERO ===== */
     .hero{
-      padding: 72px 0 56px;
+      padding: 100px 0 80px;
       text-align:center;
     }
     .hero h1{
-      margin:0 0 14px;
-      font-size: clamp(28px, 3.2vw, 44px);
-      letter-spacing: .02em;
-      line-height:1.25;
-      word-break: keep-all; /* 避免中文亂斷行 */
+      margin:0 0 16px;
+      font-size: clamp(26px, 4vw, 38px);
+      font-weight: 500;      /* 不使用太粗的字體，保持優雅 */
+      letter-spacing: .15em;
+      line-height:1.5;
+      word-break: keep-all;
     }
     .hero p{
       margin:0;
       color:var(--muted);
-      font-size: 18px;
+      font-size: 16px;
+      letter-spacing: 0.1em;
     }
     .hero .sub{
-      margin-top: 6px;
+      margin-top: 8px;
       color:var(--muted);
-      font-size: 18px;
+      font-size: 15px;
+      font-style: italic;   /* 增加一點設計感 */
     }
 
     .cta-row{
-      margin-top: 34px;
+      margin-top: 48px;
       display:flex;
       justify-content:center;
-      gap:12px;
+      gap:16px;
       flex-wrap:wrap;
     }
     .btn{
-      border:0;
+      border: 1px solid var(--brand);
       cursor:pointer;
-      padding: 16px 28px;
-      border-radius: 999px;
-      font-size: 18px;
-      font-weight: 700;
-      letter-spacing:.02em;
-      transition: transform .08s ease, background .2s ease, box-shadow .2s ease;
-      box-shadow: var(--shadow);
+      padding: 14px 40px;
+      border-radius: 2px;    /* 減少圓角，改為簡約方角 */
+      font-size: 16px;
+      font-weight: 400;
+      letter-spacing:.1em;
+      transition: all .3s ease;
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      min-width: 220px;
+      min-width: 240px;
       user-select:none;
+      background: transparent;
+      color: var(--brand);
     }
-    .btn:active{ transform: translateY(1px); }
+    .btn:hover{ 
+      background: var(--brand);
+      color: #fff;
+      box-shadow: var(--shadow);
+    }
+    
     .btn-line{
       background: var(--brand);
       color:#fff;
     }
-    .btn-line:hover{ background: var(--brand-dark); }
+    .btn-line:hover{ 
+      background: var(--brand-dark);
+      border-color: var(--brand-dark);
+    }
 
     .divider{
-      height:1px;
-      background: var(--line);
-      margin: 28px 0 0;
+      width: 40px;
+      height: 1px;
+      background: var(--brand);
+      margin: 60px auto 0;
     }
 
     /* ===== GALLERY ===== */
     .section{
-      padding: 56px 0;
+      padding: 80px 0;
     }
     .section-title{
-      margin:0 0 16px;
-      font-size: 22px;
-      letter-spacing:.02em;
+      margin:0 0 40px;
+      font-size: 20px;
+      font-weight: 500;
+      letter-spacing:.2em;
+      text-align: center;
+      position: relative;
+      padding-bottom: 15px;
+    }
+    .section-title::after{
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 20px;
+      height: 1px;
+      background: var(--accent);
     }
 
     .grid-3{
       display:grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
+      gap: 30px;
     }
     .card{
-      border:1px solid var(--line);
-      border-radius: var(--radius);
+      border: none;
+      border-radius: 0;
       overflow:hidden;
-      background:#fff;
+      background: transparent;
+      transition: transform 0.4s ease;
+    }
+    .card:hover{
+      transform: translateY(-5px);
     }
     .card .label{
-      padding: 14px 16px 12px;
-      font-weight: 800;
-      font-size: 18px;
-      border-bottom:1px solid var(--line);
-      background: #fff;
+      padding: 20px 0 10px;
+      font-weight: 400;
+      font-size: 15px;
+      letter-spacing: 0.1em;
+      text-align: center;
+      color: var(--muted);
     }
     .media{
       width:100%;
-      aspect-ratio: 16 / 10;
+      aspect-ratio: 1 / 1.2; /* 改為稍微長方形，更有雜誌感 */
       background: var(--soft);
       display:block;
       object-fit: cover;
+      filter: sepia(10%) contrast(95%); /* 輕微復古濾鏡 */
     }
 
     /* ===== ABOUT ===== */
     .about{
       display:grid;
-      grid-template-columns: 240px 1fr;
-      gap: 22px;
-      align-items:start;
-      padding: 20px;
-      border:1px solid var(--line);
-      border-radius: var(--radius);
-      background:#fff;
+      grid-template-columns: 320px 1fr;
+      gap: 50px;
+      align-items: center;
+      padding: 0;
+      border: none;
+      background: transparent;
     }
     .about-photo img{
-      width: 240px;
-      max-width: 100%;
-      border-radius: 12px;
+      width: 100%;
+      border-radius: 0;
       object-fit: cover;
-      background-color: #f5f5f5;
       display:block;
+      box-shadow: 15px 15px 0 var(--soft); /* 裝飾性陰影 */
     }
     .about h3{
-      margin:0 0 8px;
-      font-size: 22px;
-      letter-spacing:.02em;
+      margin:0 0 12px;
+      font-size: 24px;
+      font-weight: 500;
+      letter-spacing:.1em;
     }
     .about .meta{
-      color:var(--muted);
-      margin:0 0 14px;
+      color:var(--brand);
+      margin:0 0 24px;
+      font-size: 14px;
+      letter-spacing: 0.15em;
+    }
+    .about p {
       font-size: 15px;
+      margin-bottom: 20px;
     }
     .about ul{
-      margin: 10px 0 0;
-      padding-left: 18px;
+      margin: 30px 0 0;
+      padding-left: 0;
+      list-style: none;
     }
-    .about li{ margin: 6px 0; }
+    .about li{ 
+      margin: 12px 0; 
+      font-size: 14px;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+    }
+    .about li::before {
+      content: "—";
+      margin-right: 10px;
+      color: var(--accent);
+    }
 
     /* ===== TESTIMONIALS ===== */
     .quotes{
       display:grid;
       grid-template-columns: 1fr 1fr;
-      gap: 16px;
+      gap: 30px;
     }
     .quote{
-      border:1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 16px;
-      background:#fff;
+      border: none;
+      padding: 40px;
+      background: var(--soft);
+      position: relative;
+    }
+    .quote::before {
+      content: "“";
+      position: absolute;
+      top: 10px;
+      left: 20px;
+      font-size: 40px;
+      color: var(--accent);
+      font-family: serif;
     }
     .quote p{
       margin:0;
-      font-size: 16px;
+      font-size: 15px;
+      line-height: 1.8;
     }
     .quote .from{
-      margin-top: 10px;
+      margin-top: 20px;
       color:var(--muted);
-      font-size: 14px;
+      font-size: 13px;
+      text-align: right;
+      letter-spacing: 0.05em;
     }
 
     /* ===== RULES ===== */
     .rules{
-      border:1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 18px;
-      background:#fff;
+      border: 1px solid var(--line);
+      padding: 40px;
+      background: #fff;
     }
     .rules h4{
-      margin: 0 0 10px;
-      font-size: 18px;
+      margin: 0 0 20px;
+      font-size: 17px;
+      font-weight: 500;
+      color: var(--brand);
     }
     .rules .block{
-      margin: 14px 0 0;
-      padding-top: 14px;
-      border-top:1px solid var(--line);
+      margin: 30px 0 0;
+      padding-top: 30px;
+      border-top: 1px solid var(--line);
     }
     .rules ol, .rules ul{
-      margin: 8px 0 0;
-      padding-left: 18px;
+      margin: 15px 0 0;
+      padding-left: 20px;
     }
-    .rules li{ margin: 6px 0; }
-    .note{
-      margin-top: 10px;
-      color: var(--muted);
+    .rules li{ 
+      margin: 10px 0; 
       font-size: 14px;
+    }
+    .note{
+      margin-top: 15px;
+      color: var(--muted);
+      font-size: 13px;
     }
 
     footer{
-      padding: 28px 0 40px;
+      padding: 60px 0 80px;
       color: var(--muted);
-      font-size: 13px;
+      font-size: 12px;
       text-align:center;
+      letter-spacing: 0.1em;
+      border-top: 1px solid var(--line);
+      margin-top: 40px;
     }
 
     /* ===== MOBILE ===== */
     @media (max-width: 900px){
-      .grid-3{ grid-template-columns: 1fr; }
+      .grid-3{ grid-template-columns: 1fr; gap: 40px; }
       .quotes{ grid-template-columns: 1fr; }
-      .about{ grid-template-columns: 1fr; }
-      .about-photo img{ width: 100%; }
-      .hero{ padding: 56px 0 44px; }
-      .hero p, .hero .sub{ font-size: 16px; }
+      .about{ grid-template-columns: 1fr; gap: 40px; }
+      .about-photo { order: -1; }
+      .hero{ padding: 80px 0 60px; }
+      .hero h1 { font-size: 24px; }
+      .btn { width: 100%; }
     }
   </style>
 </head>
@@ -247,9 +317,7 @@
     <!-- HERO -->
     <section class="hero">
       <div class="wrap">
-        <!-- 這句就是你現在想換回「最初版本」的位置：你要改字就改這一行 -->
-        <h1>陪你把聲音</h1>
-        <h1>唱成你自己的樣子</h1>
+        <h1>陪你把聲音<br>唱成你自己的樣子</h1>
 
         <p>專業歌唱教學 × 配唱式引導</p>
         <p class="sub">給願意認真練習、真心想進步的你</p>
@@ -265,20 +333,21 @@
     <!-- GALLERY -->
     <section class="section">
       <div class="wrap">
+        <h2 class="section-title">教學現場</h2>
         <div class="grid-3">
           <article class="card">
-            <div class="label">學生合照</div>
             <img class="media" src="images/teaching-1.jpg" alt="教學合照">
+            <div class="label">學生合照</div>
           </article>
 
           <article class="card">
-            <div class="label">舞台演出</div>
             <img class="media" src="images/stage-1.jpg" alt="舞台演出">
+            <div class="label">舞台演出</div>
           </article>
 
           <article class="card">
-            <div class="label">錄音教學</div>
             <img class="media" src="images/recording-1.jpg" alt="錄音教學">
+            <div class="label">錄音教學</div>
           </article>
         </div>
       </div>
@@ -291,7 +360,6 @@
 
         <div class="about">
           <div class="about-photo">
-            <!-- 你的照片：請把你剛那張改名成 axu-about.jpg 放在 images/ -->
             <img src="images/axu-about.jpg" alt="阿徐｜歌唱教學引導中">
           </div>
 
@@ -301,7 +369,7 @@
 
             <p>
               我在課堂裡做的不是「叫你唱大聲」或「叫你模仿別人」。 </p>
-              <p>我更在意的是：透過觀察原唱者，形塑你到底想唱成什麼樣子、卡在哪裡、怎麼用最省力的方式把聲音放回你的身體。</p>
+            <p>我更在意的是：透過觀察原唱者，形塑你到底想唱成什麼樣子、卡在哪裡、怎麼用最省力的方式把聲音放回你的身體。</p>
 
             <ul>
               <li>你不需要很厲害才來上課，但你要願意練習。</li>
@@ -309,8 +377,8 @@
               <li>適合：流行歌唱、錄音準備、舞台演出、唱歌自信建立。</li>
             </ul>
 
-            <div class="cta-row" style="justify-content:flex-start; margin-top:16px;">
-              <button class="btn btn-line" id="lineCta2">加入 LINE 詢問 / 預約</button>
+            <div class="cta-row" style="justify-content:flex-start; margin-top:32px;">
+              <button class="btn" id="lineCta2">加入 LINE 詢問 / 預約</button>
             </div>
           </div>
         </div>
@@ -344,14 +412,14 @@
           </div>
         </div>
 
-        <p class="note">（以上為匿名節錄，保留原意，僅做排版與標點整理。）</p>
+        <p class="note" style="text-align: center; margin-top: 30px;">（以上為匿名節錄，保留原意，僅做排版與標點整理。）</p>
       </div>
     </section>
 
     <!-- RULES -->
     <section class="section">
       <div class="wrap">
-        <h2 class="section-title">體驗課與課程規範</h2>
+        <h2 class="section-title">課程規範</h2>
 
         <div class="rules">
           <h4>體驗課須知</h4>
@@ -381,7 +449,7 @@
             </ol>
           </div>
 
-          <div class="cta-row" style="justify-content:flex-start; margin-top:18px;">
+          <div class="cta-row" style="justify-content:center; margin-top:40px;">
             <button class="btn btn-line" id="lineCta3">用 LINE 直接預約 / 詢問</button>
           </div>
         </div>
@@ -394,17 +462,13 @@
   </main>
 
   <script>
-    // ===== LINE 立刻跳轉（優先開 LINE App，失敗才回 web）=====
-    // 你的 LINE 官方帳號：@418zpjqs
+    // ===== LINE 立刻跳轉 =====
     const LINE_ID = "@418zpjqs";
     const lineDeepLink = "line://ti/p/" + encodeURIComponent(LINE_ID);
     const lineWebLink  = "https://page.line.me/418zpjqs";
 
     function goLineNow(){
-      // 直接嘗試開 App
       window.location.href = lineDeepLink;
-
-      // 若裝置沒裝 LINE / 阻擋 scheme，延遲後回退到 web
       setTimeout(() => {
         window.location.href = lineWebLink;
       }, 700);
